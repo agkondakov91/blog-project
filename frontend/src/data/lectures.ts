@@ -21,6 +21,15 @@ export const lectures: Lecture[] = [
 		tags: ['react', 'typescript'],
 	},
 	{
+		slug: 'react-03-components',
+		number: 3,
+		title: 'Компоненты и типизированные props',
+		technology: 'REACT',
+		status: 'draft',
+		description: 'Компоненты, JSX, props, children и композиция',
+		tags: ['react', 'typescript'],
+	},
+	{
 		slug: 'css-01-sintaksis-i-specifichnost',
 		number: 1,
 		title: 'Синтаксис CSS и специфичность',

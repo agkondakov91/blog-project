@@ -4,6 +4,7 @@ export type Technology =
 	| 'GIT'
 	| 'JAVASCRIPT'
 	| 'PYTHON'
+	| 'SQL'
 	| 'REACT';
 
 export type LectureStatus = 'draft' | 'done';
