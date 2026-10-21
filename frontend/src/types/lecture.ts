@@ -1,11 +1,15 @@
-export type Technology =
-	| 'HTML'
-	| 'CSS'
-	| 'GIT'
-	| 'JAVASCRIPT'
-	| 'PYTHON'
-	| 'SQL'
-	| 'REACT';
+export const TECHNOLOGIES = [
+	'HTML',
+	'CSS',
+	'GIT',
+	'JAVASCRIPT',
+	'PYTHON',
+	'SQL',
+	'REACT',
+	'DJANGO',
+] as const;
+
+export type Technology = (typeof TECHNOLOGIES)[number];
 
 export type LectureStatus = 'draft' | 'done';
 

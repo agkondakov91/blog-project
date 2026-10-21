@@ -8,6 +8,7 @@ const labels: Record<Technology, string> = {
 	PYTHON: 'Python',
 	SQL: 'SQL',
 	REACT: 'React',
+	DJANGO: 'DJANGO',
 };
 
 type TechnologyBadgeProps = {
