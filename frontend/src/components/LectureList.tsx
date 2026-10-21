@@ -1,0 +1,26 @@
+import type { Lecture } from '../types/lecture';
+import { LectureCard } from './LectureCard';
+
+type LectureListProps = {
+	lectures: Lecture[];
+	compact?: boolean;
+};
+
+export const LectureList = ({
+	lectures,
+	compact = false,
+}: LectureListProps) => {
+	if (lectures.length === 0) {
+		return <p className="lecture-list__empty">Здесь пока нет лекций</p>;
+	}
+
+	return (
+		<ul className="lecture-list">
+			{lectures.map((lecture) => (
+				<li key={lecture.slug}>
+					<LectureCard lecture={lecture} compact={compact} />
+				</li>
+			))}
+		</ul>
+	);
+};

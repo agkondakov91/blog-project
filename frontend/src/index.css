@@ -82,7 +82,7 @@ body {
 
 .badge {
 	padding: 2px 10px;
-	border-radius: 999px;
+	border-radius: 10px;
 	font-size: 13px;
 	font-weight: 600;
 	color: #ffffff;
@@ -99,4 +99,29 @@ body {
 }
 .badge--python {
 	background: #b8701a;
+}
+
+.lecture-list {
+	margin: 0 0 32px;
+	padding: 0;
+	list-style: none;
+}
+
+.lecture-list__empty {
+	margin: 0 0 32px;
+	color: #57606a;
+}
+
+.technology-section__title {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin: 0 0 16px;
+	font-size: 20px;
+}
+
+.technology-section__count {
+	color: #57606a;
+	font-size: 16px;
+	font-weight: 400;
 }
