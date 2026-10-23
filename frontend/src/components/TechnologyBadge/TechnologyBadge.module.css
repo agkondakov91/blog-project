@@ -1,0 +1,27 @@
+.badge {
+	padding: 2px var(--space-12);
+	border-radius: var(--radius-pill);
+	font-size: var(--font-size-sm);
+	font-weight: 600;
+	color: var(--color-on-accent);
+}
+
+.react,
+.django {
+	background: var(--color-react);
+}
+
+.css,
+.html,
+.git {
+	background: var(--color-css);
+}
+
+.sql {
+	background: var(--color-sql);
+}
+
+.python,
+.javascript {
+	background: var(--color-python);
+}
