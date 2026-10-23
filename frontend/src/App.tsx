@@ -1,6 +1,6 @@
-import { Layout } from './components/Layout';
-import { LectureList } from './components/LectureList';
-import { TechnologySection } from './components/TechnologySection';
+import { Layout } from './components/Layout/Layout';
+import { LectureList } from './components/LectureList/LectureList';
+import { TechnologySection } from './components/TechnologySection/TechnologySection';
 import { lectures } from './data/lectures';
 import {
 	getDrafts,

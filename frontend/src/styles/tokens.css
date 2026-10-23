@@ -1,0 +1,38 @@
+:root {
+	--color-text: #1f2328;
+	--color-text-muted: #636e79;
+	--color-bg: #e6e6e6;
+	--color-border: #d0d7de;
+	--color-on-accent: #ffffff;
+
+	--color-react: #3b63b8;
+	--color-css: #7a52b3;
+	--color-sql: #2f7d45;
+	--color-python: #b8701a;
+
+	--font-family-base: system-ui, -apple-system, sans-serif;
+	--font-size-sm: 14px;
+	--font-size-md: 16px;
+	--font-size-lg: 20px;
+	--line-height-base: 1.6;
+
+	/* 1 */
+	--space-4: 4px;
+	/* 2 */
+	--space-8: 8px;
+	/* 3 */
+	--space-12: 12px;
+	/* 4 */
+	--space-16: 16px;
+	/* 5 */
+	--space-24: 24px;
+	/* 6 */
+	--space-32: 32px;
+	/* 8 */
+	--space-48: 48px;
+
+	--radius-md: 12px;
+	--radius-pill: 999px;
+
+	--content-width: 720px;
+}

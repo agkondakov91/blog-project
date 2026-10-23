@@ -1,6 +1,8 @@
+import styles from './Footer.module.css';
+
 export const Footer = () => {
 	return (
-		<footer className="footer">
+		<footer className={styles.footer}>
 			<p>© {new Date().getFullYear()} Обучающий блог</p>
 		</footer>
 	);
