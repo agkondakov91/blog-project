@@ -1,6 +1,7 @@
-import type { LectureGroup } from '../lib/lectures';
-import { LectureList } from './LectureList';
-import { TechnologyBadge } from './TechnologyBadge';
+import type { LectureGroup } from '../../lib/lectures';
+import { LectureList } from '../LectureList/LectureList';
+import { TechnologyBadge } from '../TechnologyBadge/TechnologyBadge';
+import styles from './TechnologySection.module.css';
 
 type TechnologySectionProps = {
 	group: LectureGroup;
@@ -8,10 +9,10 @@ type TechnologySectionProps = {
 
 export const TechnologySection = ({ group }: TechnologySectionProps) => {
 	return (
-		<section className="technology-section">
-			<h2 className="technology-section__title">
+		<section>
+			<h2 className={styles.title}>
 				<TechnologyBadge technology={group.technology} />
-				<span className="technology-section__count">
+				<span className={styles.count}>
 					Лекций всего: {group.lectures.length}
 				</span>
 			</h2>

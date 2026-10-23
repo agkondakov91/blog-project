@@ -1,0 +1,28 @@
+.card {
+	padding: var(--space-24);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+}
+
+.meta {
+	display: flex;
+	gap: var(--space-12);
+	align-items: center;
+	color: var(--color-text-muted);
+	font-size: var(--font-size-md);
+}
+
+.title {
+	margin: var(--space-8) 0;
+	font-size: var(--font-size-lg);
+}
+
+.description {
+	margin: 0;
+}
+
+.update {
+	margin: var(--space-8) 0 0;
+	color: var(--color-text-muted);
+	font-size: var(--font-size-sm);
+}
