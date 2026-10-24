@@ -1,20 +1,19 @@
-import { Layout } from './components/Layout/Layout';
-import { LectureList } from './components/LectureList/LectureList';
-import { TechnologySection } from './components/TechnologySection/TechnologySection';
-import { lectures } from './data/lectures';
+import { LectureList } from '../components/LectureList/LectureList';
+import { TechnologySection } from '../components/TechnologySection/TechnologySection';
+import { lectures } from '../data/lectures';
 import {
 	getDrafts,
 	getPublished,
 	groupByTechnology,
 	sortByNumber,
-} from './lib/lectures';
+} from '../lib/lectures';
 
-function App() {
+export const HomePage = () => {
 	const groups = groupByTechnology(sortByNumber(getPublished(lectures)));
 	const drafts = sortByNumber(getDrafts(lectures));
 
 	return (
-		<Layout>
+		<>
 			<h1>Лекции</h1>
 			{groups.map((group) => (
 				<TechnologySection key={group.technology} group={group} />
@@ -22,8 +21,6 @@ function App() {
 
 			<h2>Сейчас в работе</h2>
 			<LectureList lectures={drafts} compact />
-		</Layout>
+		</>
 	);
-}
-
-export default App;
+};
