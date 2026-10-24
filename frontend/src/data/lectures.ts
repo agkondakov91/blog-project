@@ -1,4 +1,3 @@
-// src/data/lectures.ts
 import type { Lecture } from '../types/lecture';
 
 export const lectures: Lecture[] = [
