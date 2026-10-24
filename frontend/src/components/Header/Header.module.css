@@ -1,4 +1,8 @@
 .header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: var(--space-16);
 	width: 100%;
 	max-width: var(--content-width);
 	margin: 0 auto;
@@ -17,4 +21,23 @@
 	margin: var(--space-1) 0 0;
 	color: var(--color-text-muted);
 	font-size: var(--font-size-sm);
+}
+
+.nav {
+	display: flex;
+	gap: var(--space-16);
+}
+
+.navLink {
+	color: var(--color-text-muted);
+	text-decoration: none;
+}
+
+.navLink:hover {
+	color: var(--color-active);
+}
+
+.active {
+	color: var(--color-active);
+	font-weight: 600;
 }

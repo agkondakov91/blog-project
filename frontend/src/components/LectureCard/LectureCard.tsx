@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+import { lecturePath } from '../../lib/paths';
 import type { Lecture } from '../../types/lecture';
 import { TechnologyBadge } from '../TechnologyBadge/TechnologyBadge';
 import styles from './LectureCard.module.css';
@@ -14,7 +16,11 @@ export const LectureCard = ({ lecture, compact = false }: LectureCardProps) => {
 				<TechnologyBadge technology={lecture.technology} />
 				<span>Лекция {lecture.number}</span>
 			</div>
-			<h2 className={styles.title}>{lecture.title}</h2>
+			<h2 className={styles.title}>
+				<Link className={styles.link} to={lecturePath(lecture.slug)}>
+					{lecture.title}
+				</Link>
+			</h2>
 			{!compact && <p className={styles.description}>{lecture.description}</p>}
 			{lecture.updatedAt && (
 				<p className={styles.update}>Обновлено: {lecture.updatedAt}</p>
