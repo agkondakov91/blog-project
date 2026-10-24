@@ -1,6 +1,8 @@
 :root {
 	--color-text: #1f2328;
+	--color-active: #005bb6;
 	--color-text-muted: #636e79;
+	--color-text-tags: #a7b3c0;
 	--color-bg: #e6e6e6;
 	--color-border: #d0d7de;
 	--color-on-accent: #ffffff;
