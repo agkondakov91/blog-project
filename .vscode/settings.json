@@ -1,0 +1,7 @@
+{
+    "biome.enabled": false,
+    "files.exclude": {
+        "frontend": true,
+        "content": true
+    }
+}

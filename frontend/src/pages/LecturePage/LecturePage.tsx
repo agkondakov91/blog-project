@@ -31,10 +31,8 @@ export const LecturePage = () => {
 				{lecture.tags.map((tag) => (
 					<li key={tag}>#{tag}</li>
 				))}
-				<p className={styles.placeholder}>
-					Текст лекции появится, когда подключим Markdown-файлы.
-				</p>
 			</ul>
+			<pre className={styles.raw}>{lecture.body}</pre>
 		</article>
 	);
 };
