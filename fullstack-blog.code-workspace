@@ -3,6 +3,14 @@
         {
             "name": "frontend",
             "path": "frontend"
+        },
+        {
+            "name": "content",
+            "path": "content"
+        },
+        {
+            "name": "root",
+            "path": "."
         }
     ]
 }

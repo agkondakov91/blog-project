@@ -21,5 +21,6 @@ export type Lecture = {
 	status: LectureStatus;
 	description: string;
 	tags: string[];
+	body: string;
 	updatedAt?: string;
 };
