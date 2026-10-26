@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router';
+import { MarkdownContent } from '../../components/MarkdownContent/MarkdownContent';
 import { TechnologyBadge } from '../../components/TechnologyBadge/TechnologyBadge';
 import { lectures } from '../../data/lectures';
 import { findBySlug } from '../../lib/lectures';
@@ -32,7 +33,7 @@ export const LecturePage = () => {
 					<li key={tag}>#{tag}</li>
 				))}
 			</ul>
-			<pre className={styles.raw}>{lecture.body}</pre>
+			<MarkdownContent source={lecture.body} />
 		</article>
 	);
 };

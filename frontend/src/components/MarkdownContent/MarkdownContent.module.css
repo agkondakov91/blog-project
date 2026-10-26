@@ -1,0 +1,90 @@
+.content {
+	line-height: 1.7;
+}
+
+.content h2 {
+	margin: var(--space-48) 0 var(--space-16);
+	font-size: var(--font-size-xl);
+}
+
+.content h3 {
+	margin: var(--space-32) 0 var(--space-12);
+	font-size: var(--font-size-lg);
+}
+
+.content p,
+.content ul,
+.content ol,
+.content table,
+.content pre,
+.content blockquote {
+	margin: 0 0 var(--space-16);
+}
+
+.content ul,
+.content ol {
+	padding-inline-start: var(--space-24);
+}
+
+.content li + li {
+	margin-block-start: var(--space-4);
+}
+
+.content a {
+	color: var(--color-link);
+}
+
+.content :not(pre) > code {
+	padding: var(--space-4);
+	border-radius: var(--radius-sm);
+	background: var(--color-code-bg);
+	font-size: 0.9em;
+}
+
+.content pre {
+	overflow-x: auto;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	background: var(--color-code-bg);
+	font-size: var(--font-size-sm);
+	line-height: 1.5;
+}
+
+.content pre code {
+	display: block;
+	padding: var(--space-16);
+	background: var(--color-code-bg);
+}
+
+.content blockquote {
+	padding: var(--space-12) var(--space-16);
+	border-block-start: 2px solid var(--color-border);
+	color: var(--color-text-muted);
+}
+
+.content blockquote > :last-child {
+	margin-inline-end: 0;
+}
+
+.content table {
+	display: block;
+	overflow-x: auto;
+	border-collapse: collapse;
+	font-size: var(--font-size-sm);
+}
+
+.content th,
+.content td {
+	padding: var(--space-8) var(--space-12);
+	border: 1px solid var(--color-border);
+	text-align: left;
+}
+
+.content th {
+	background: var(--color-code-bg);
+}
+
+.content img {
+	max-width: 100%;
+	height: auto;
+}
