@@ -6,16 +6,22 @@
 	--color-bg: #e6e6e6;
 	--color-border: #d0d7de;
 	--color-on-accent: #ffffff;
+	--color-link: #3b63b8;
+	--color-code-bg: #f1f3f5;
 
-	--color-react: #3b63b8;
+	--color-html: #d9481c;
 	--color-css: #7a52b3;
-	--color-sql: #2f7d45;
-	--color-python: #b8701a;
+	--color-git: #f14e32;
+	--color-javascript: #dba719;
+	--color-react: #2c5fcf;
+	--color-sql: #e35e16;
+	--color-python: #1a66b8;
 
 	--font-family-base: system-ui, -apple-system, sans-serif;
 	--font-size-sm: 14px;
 	--font-size-md: 16px;
 	--font-size-lg: 20px;
+	--font-size-xl: 26px;
 	--line-height-base: 1.6;
 
 	/* 1 */
@@ -33,6 +39,7 @@
 	/* 8 */
 	--space-48: 48px;
 
+	--radius-sm: 6px;
 	--radius-md: 12px;
 	--radius-pill: 999px;
 

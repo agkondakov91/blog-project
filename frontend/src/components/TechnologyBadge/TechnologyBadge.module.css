@@ -11,9 +11,15 @@
 	background: var(--color-react);
 }
 
-.css,
-.html,
+.html {
+	background: var(--color-html);
+}
+
 .git {
+	background: var(--color-git);
+}
+
+.css {
 	background: var(--color-css);
 }
 
