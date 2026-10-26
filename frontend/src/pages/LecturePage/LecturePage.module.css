@@ -45,13 +45,3 @@
 	font-size: var(--font-size-sm);
 	list-style: none;
 }
-
-.raw {
-	margin-block-start: var(--space-32);
-	padding: var(--space-16);
-	border: 1px solid var(--color-border);
-	border-radius: var(--radius-md);
-	font-size: var(--font-size-sm);
-	white-space: pre-wrap;
-	overflow-wrap: anywhere;
-}
