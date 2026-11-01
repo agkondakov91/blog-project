@@ -1,7 +1,7 @@
 {
 	"name": "frontend",
 	"private": true,
-	"version": "0.8.0",
+	"version": "0.9.0",
 	"type": "module",
 	"engines": {
 		"node": "24.x"
@@ -14,12 +14,14 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@r4ai/remark-callout": "^0.6.2",
 		"highlight.js": "^11.12.0",
 		"react": "^19.3.1",
 		"react-dom": "^19.3.1",
 		"react-markdown": "^10.1.0",
 		"react-router": "^8.5.0",
 		"rehype-highlight": "^7.0.2",
+		"rehype-raw": "^7.0.0",
 		"remark-gfm": "^4.0.1",
 		"yaml": "^2.9.1"
 	},

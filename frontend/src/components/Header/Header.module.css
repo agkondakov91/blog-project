@@ -41,3 +41,10 @@
 	color: var(--color-active);
 	font-weight: 600;
 }
+
+@media (max-width: 600px) {
+	.header {
+		flex-direction: column;
+		gap: var(--space-32);
+	}
+}
