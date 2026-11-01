@@ -48,6 +48,7 @@
 	background: var(--color-code-bg);
 	font-size: var(--font-size-sm);
 	line-height: 1.5;
+	tab-size: 2;
 }
 
 .content pre code {
@@ -87,4 +88,68 @@
 .content img {
 	max-width: 100%;
 	height: auto;
+}
+
+.content mark {
+	padding: 0 var(--space-4);
+	border-radius: var(--radius-sm);
+	background: var(--color-highlight);
+	color: inherit;
+}
+
+.content font {
+	color: var(--color-term);
+	font-weight: 600;
+}
+
+.content hr {
+	margin: var(--space-32) 0;
+	border: none;
+	border-block-start: 1px solid var(--color-border);
+}
+
+.content img {
+	display: block;
+	margin: 0 auto var(--space-16);
+}
+
+.content [data-callout] {
+	--callout-color: var(--color-info);
+	--callout-bg: var(--color-info-bg);
+	--callout-icon: "ℹ️";
+
+	margin: 0 0 var(--space-16);
+	padding: var(--space-12) var(--space-16);
+	border-left: 4px solid var(--callout-color);
+	border-radius: var(--radius-sm);
+	background: var(--callout-bg);
+}
+
+.content [data-callout-type="tip"] {
+	--callout-color: var(--color-tip);
+	--callout-bg: var(--color-tip-bg);
+	--callout-icon: "💡";
+}
+
+.content [data-callout-type="warning"] {
+	--callout-color: var(--color-warning);
+	--callout-bg: var(--color-warning-bg);
+	--callout-icon: "⚠️";
+}
+
+.content [data-callout-title] {
+	font-weight: 600;
+}
+
+.content [data-callout-title]::before {
+	content: var(--callout-icon);
+	margin-right: var(--space-8);
+}
+
+.content [data-callout-body] {
+	margin-block-start: var(--space-8);
+}
+
+.content [data-callout-body] > :last-child {
+	margin-block-end: 0;
 }

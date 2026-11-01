@@ -3,11 +3,11 @@
 	--color-active: #005bb6;
 	--color-text-muted: #636e79;
 	--color-text-tags: #a7b3c0;
-	--color-bg: #e6e6e6;
+	--color-bg: #f4f4f4;
 	--color-border: #d0d7de;
 	--color-on-accent: #ffffff;
 	--color-link: #3b63b8;
-	--color-code-bg: #f1f3f5;
+	--color-code-bg: #ffffff;
 
 	--color-html: #d9481c;
 	--color-css: #7a52b3;
@@ -42,6 +42,15 @@
 	--radius-sm: 4px;
 	--radius-md: 12px;
 	--radius-pill: 999px;
-
 	--content-width: 720px;
+
+	/* Разметка лекций */
+	--color-highlight: #fff3b0;
+	--color-term: #c62828;
+	--color-info: #3b63b8;
+	--color-info-bg: #e0e8f6;
+	--color-tip: #2f7d45;
+	--color-tip-bg: #d1efdd;
+	--color-warning: #b8701a;
+	--color-warning-bg: #ffe5db;
 }

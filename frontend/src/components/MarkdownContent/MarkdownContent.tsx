@@ -11,6 +11,7 @@ import styles from './MarkdownContent.module.css';
 
 const HIGHLIGHT_PATTERN = /^==(.+)==$/;
 const IMAGE_EMBED_PATTERN = /^!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/;
+const WIKI_LINK_PATTERN = /^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/;
 
 const components: Components = {
 	a: ({ href = '', children }) => {
@@ -43,6 +44,16 @@ const components: Components = {
 				<img src={src} alt={alt} />
 			) : (
 				<p>Картинка не найдена: {fileName}</p>
+			);
+		}
+
+		const link = WIKI_LINK_PATTERN.exec(children);
+		if (link) {
+			const [, target, label = target] = link;
+			return (
+				<p>
+					<Link to="/">{label}</Link>
+				</p>
 			);
 		}
 
