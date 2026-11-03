@@ -1,4 +1,4 @@
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/a11y-dark.css';
 import remarkCallout from '@r4ai/remark-callout';
 import type { Components } from 'react-markdown';
 import Markdown from 'react-markdown';

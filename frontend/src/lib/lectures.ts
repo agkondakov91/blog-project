@@ -1,37 +1,33 @@
-import { type Lecture, TECHNOLOGIES, type Technology } from '../types/lecture';
+import type { LectureSummary, Technology } from '../types/lecture';
+import { TECHNOLOGIES } from '../types/lecture';
 
 export type LectureGroup = {
 	technology: Technology;
-	lectures: Lecture[];
+	lectures: LectureSummary[];
 };
 
-export const getPublished = (lectures: Lecture[]): Lecture[] => {
+export const getPublished = (lectures: LectureSummary[]): LectureSummary[] => {
 	return lectures.filter((lecture) => lecture.status === 'done');
 };
 
-export const getDrafts = (lectures: Lecture[]): Lecture[] => {
+export const getDrafts = (lectures: LectureSummary[]): LectureSummary[] => {
 	return lectures.filter((lecture) => lecture.status === 'draft');
 };
 
 export const getByTechnology = (
-	lectures: Lecture[],
+	lectures: LectureSummary[],
 	technology: Technology,
-): Lecture[] => {
+): LectureSummary[] => {
 	return lectures.filter((lecture) => lecture.technology === technology);
 };
 
-export const findBySlug = (
-	lectures: Lecture[],
-	slug: string,
-): Lecture | undefined => {
-	return lectures.findLast((lecture) => lecture.slug === slug);
-};
-
-export const sortByNumber = (lectures: Lecture[]): Lecture[] => {
+export const sortByNumber = (lectures: LectureSummary[]): LectureSummary[] => {
 	return [...lectures].sort((a, b) => a.number - b.number);
 };
 
-export const groupByTechnology = (lectures: Lecture[]): LectureGroup[] => {
+export const groupByTechnology = (
+	lectures: LectureSummary[],
+): LectureGroup[] => {
 	return TECHNOLOGIES.map((technology) => ({
 		technology,
 		lectures: getByTechnology(lectures, technology),

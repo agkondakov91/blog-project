@@ -1,6 +1,7 @@
+import { useLoaderData } from 'react-router';
+import { fetchLectureSummaries } from '../api/lectures';
 import { LectureList } from '../components/LectureList/LectureList';
 import { TechnologySection } from '../components/TechnologySection/TechnologySection';
-import { lectures } from '../data/lectures';
 import {
 	getDrafts,
 	getPublished,
@@ -8,7 +9,12 @@ import {
 	sortByNumber,
 } from '../lib/lectures';
 
+export const homeLoader = () => {
+	return fetchLectureSummaries();
+};
+
 export const HomePage = () => {
+	const lectures = useLoaderData<typeof homeLoader>();
 	const groups = groupByTechnology(sortByNumber(getPublished(lectures)));
 	const drafts = sortByNumber(getDrafts(lectures));
 
