@@ -1,18 +1,13 @@
-import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { contentPlugin } from './scripts/content-plugin.ts';
 
-const contentDir = fileURLToPath(new URL('../content', import.meta.url));
-
-// https://vite.dev/config/
 export default defineConfig({
-	plugins: [
-		react(),
-		{
-			name: 'watch-content',
-			configureServer(server) {
-				server.watcher.add(contentDir);
-			},
-		},
-	],
+	plugins: [react(), contentPlugin()],
+	build: {
+		// Порог поднят осознанно: самый большой файл сборки — код страницы
+		// лекции с библиотеками Markdown, и загружается он только на ней.
+		// Если предупреждение появится снова — разбираемся заново.
+		chunkSizeWarningLimit: 600,
+	},
 });

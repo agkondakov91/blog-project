@@ -1,3 +1,9 @@
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 .layout {
 	display: flex;
 	flex-direction: column;
@@ -10,4 +16,26 @@
 	max-width: var(--content-width);
 	margin: 0 auto;
 	padding: 0 var(--space-16);
+	position: relative;
+}
+
+.loaderOverlay {
+	position: absolute;
+	inset: 0;
+	opacity: 90%;
+	background-color: var(--color-bg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+	backdrop-filter: blur(7px);
+}
+
+.spinner {
+	width: 42px;
+	aspect-ratio: 1 / 1;
+	border: 5px solid var(--color-border);
+	border-block-start-color: var(--color-active);
+	border-radius: 50%;
+	animation: spin 0.9s linear infinite;
 }

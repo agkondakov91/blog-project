@@ -1,6 +1,10 @@
 import { parse } from 'yaml';
-import type { Lecture, LectureStatus, Technology } from '../types/lecture';
-import { TECHNOLOGIES } from '../types/lecture';
+import type {
+	Lecture,
+	LectureStatus,
+	Technology,
+} from '../src/types/lecture.ts';
+import { TECHNOLOGIES } from '../src/types/lecture.ts';
 
 export type ContentError = {
 	path: string;

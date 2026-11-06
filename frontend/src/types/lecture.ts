@@ -24,3 +24,5 @@ export type Lecture = {
 	body: string;
 	updatedAt?: string;
 };
+
+export type LectureSummary = Omit<Lecture, 'body'>;
