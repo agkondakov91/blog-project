@@ -1,9 +1,9 @@
-import type { Lecture } from '../../types/lecture';
+import type { LectureSummary } from '../../types/lecture';
 import { LectureCard } from '../LectureCard/LectureCard';
 import styles from './LectureList.module.css';
 
 type LectureListProps = {
-	lectures: Lecture[];
+	lectures: LectureSummary[];
 	compact?: boolean;
 };
 

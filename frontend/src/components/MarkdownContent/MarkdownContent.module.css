@@ -39,6 +39,8 @@
 	border-radius: var(--radius-sm);
 	background: var(--color-code-bg);
 	font-size: 0.9em;
+	color: var(--color-text-code);
+	font-weight: 600;
 }
 
 .content pre {
@@ -54,7 +56,6 @@
 .content pre code {
 	display: block;
 	padding: var(--space-16);
-	background: var(--color-code-bg);
 }
 
 .content blockquote {

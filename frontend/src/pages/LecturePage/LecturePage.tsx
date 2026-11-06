@@ -1,14 +1,16 @@
-import { Link, useParams } from 'react-router';
+import { Link, type LoaderFunctionArgs, useLoaderData } from 'react-router';
+import { fetchLecture } from '../../api/lectures';
 import { MarkdownContent } from '../../components/MarkdownContent/MarkdownContent';
 import { TechnologyBadge } from '../../components/TechnologyBadge/TechnologyBadge';
-import { lectures } from '../../data/lectures';
-import { findBySlug } from '../../lib/lectures';
 import { NotFoundPage } from '../NotFoundPage';
 import styles from './LecturePage.module.css';
 
+export const lectureLoader = ({ params }: LoaderFunctionArgs) => {
+	return params.slug ? fetchLecture(params.slug) : null;
+};
+
 export const LecturePage = () => {
-	const { slug } = useParams();
-	const lecture = slug ? findBySlug(lectures, slug) : undefined;
+	const lecture = useLoaderData<typeof lectureLoader>();
 
 	if (!lecture) {
 		return <NotFoundPage />;

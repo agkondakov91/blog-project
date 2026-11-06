@@ -1,11 +1,11 @@
 import { Link } from 'react-router';
 import { lecturePath } from '../../lib/paths';
-import type { Lecture } from '../../types/lecture';
+import type { LectureSummary } from '../../types/lecture';
 import { TechnologyBadge } from '../TechnologyBadge/TechnologyBadge';
 import styles from './LectureCard.module.css';
 
 type LectureCardProps = {
-	lecture: Lecture;
+	lecture: LectureSummary;
 	compact?: boolean;
 };
 
