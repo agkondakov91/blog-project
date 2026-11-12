@@ -1,20 +1,16 @@
+import { TECHNOLOGY_INFO } from '../../lib/technologies';
 import type { Technology } from '../../types/lecture';
 import styles from './TechnologyBadge.module.css';
 
-type TechnologyView = {
-	label: string;
-	className: string;
-};
-
-const views: Record<Technology, TechnologyView> = {
-	HTML: { label: 'HTML', className: styles.html },
-	GIT: { label: 'GIT', className: styles.git },
-	JAVASCRIPT: { label: 'JavaScript', className: styles.javascript },
-	DJANGO: { label: 'Django', className: styles.django },
-	REACT: { label: 'React', className: styles.react },
-	CSS: { label: 'CSS', className: styles.css },
-	SQL: { label: 'SQL', className: styles.sql },
-	PYTHON: { label: 'Python', className: styles.python },
+const classNames: Record<Technology, string> = {
+	HTML: styles.html,
+	CSS: styles.css,
+	GIT: styles.git,
+	JAVASCRIPT: styles.javascript,
+	PYTHON: styles.python,
+	SQL: styles.sql,
+	REACT: styles.react,
+	DJANGO: styles.django,
 };
 
 type TechnologyBadgeProps = {
@@ -22,8 +18,9 @@ type TechnologyBadgeProps = {
 };
 
 export const TechnologyBadge = ({ technology }: TechnologyBadgeProps) => {
-	const view = views[technology];
 	return (
-		<span className={`${styles.badge} ${view.className}`}>{view.label}</span>
+		<span className={`${styles.badge} ${classNames[technology]}`}>
+			{TECHNOLOGY_INFO[technology].label}
+		</span>
 	);
 };
