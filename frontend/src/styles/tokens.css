@@ -17,6 +17,7 @@
 	--color-react: #2c5fcf;
 	--color-sql: #e35e16;
 	--color-python: #1a66b8;
+	--color-django: #16ab90;
 
 	--font-family-base: system-ui, -apple-system, sans-serif;
 	--font-size-sm: 14px;
@@ -44,7 +45,7 @@
 	--radius-sm: 4px;
 	--radius-md: 12px;
 	--radius-pill: 999px;
-	--content-width: 720px;
+	--content-width: 1200px;
 
 	/* Разметка лекций */
 	--color-highlight: #fff3b0;

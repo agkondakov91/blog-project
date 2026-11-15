@@ -1,8 +1,12 @@
 import { createBrowserRouter } from 'react-router';
 import { Layout } from './components/Layout/Layout';
+// import { HomePage, homeLoader } from './pages/HomePage';
+import {
+	TechnologiesPage,
+	technologiesLoader,
+} from './components/TechnologiesPage/TechnologiesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
-import { HomePage, homeLoader } from './pages/HomePage';
 import { LoadingPage } from './pages/LoadingPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
@@ -13,7 +17,7 @@ export const router = createBrowserRouter([
 		ErrorBoundary: ErrorPage,
 		HydrateFallback: LoadingPage,
 		children: [
-			{ index: true, Component: HomePage, loader: homeLoader },
+			{ index: true, Component: TechnologiesPage, loader: technologiesLoader },
 			{
 				path: 'lectures/:slug',
 				lazy: async () => {
