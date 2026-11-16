@@ -36,3 +36,8 @@
 .link:hover {
 	text-decoration: underline;
 }
+
+.draft {
+	color: var(--color-warning);
+	font-weight: 600;
+}

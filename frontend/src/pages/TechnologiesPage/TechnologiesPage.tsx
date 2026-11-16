@@ -1,8 +1,8 @@
 import { useLoaderData } from 'react-router';
 import { fetchLectureSummaries } from '../../api/lectures';
+import { TechnologyCard } from '../../components/TechnologyCard/TechnologyCard';
 import { getByTechnology, getDrafts, getPublished } from '../../lib/lectures';
 import { TECHNOLOGIES } from '../../types/lecture';
-import { TechnologyCard } from '../TechnologyCard/TechnologyCard';
 import styles from './TechnologiesPage.module.css';
 
 export const technologiesLoader = () => {
