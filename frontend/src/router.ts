@@ -11,6 +11,7 @@ import {
 import {
 	TechnologyPage,
 	technologyLoader,
+	technologyShouldRevalidate,
 } from './pages/TechnologyPage/TechnologyPage';
 
 export const router = createBrowserRouter([
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
 				path: 'technologies/:technology',
 				Component: TechnologyPage,
 				loader: technologyLoader,
+				shouldRevalidate: technologyShouldRevalidate,
 			},
 			{
 				path: 'lectures/:slug',

@@ -6,6 +6,7 @@
 	padding: var(--space-24);
 	border: 1px solid var(--color-border);
 	border-radius: var(--radius-md);
+	background: var(--color-on-accent);
 }
 
 .title {

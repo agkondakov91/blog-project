@@ -1,15 +1,31 @@
-import { useState } from 'react';
-import { type LoaderFunctionArgs, useLoaderData } from 'react-router';
+import {
+	type LoaderFunctionArgs,
+	type ShouldRevalidateFunctionArgs,
+	useLoaderData,
+	useSearchParams,
+} from 'react-router';
 import { fetchLectureSummaries } from '../../api/lectures';
 import { LectureList } from '../../components/LectureList/LectureList';
 import {
+	filterByStatus,
 	getByTechnology,
+	type StatusFilter,
 	searchLectures,
 	sortByNumber,
 } from '../../lib/lectures';
 import { findTechnologyBySlug, TECHNOLOGY_INFO } from '../../lib/technologies';
 import { NotFoundPage } from '../NotFoundPage';
 import styles from './TechnologyPage.module.css';
+
+const STATUS_OPTIONS: { value: StatusFilter; label: string }[] = [
+	{ value: 'all', label: 'Все' },
+	{ value: 'done', label: 'Опубликованные' },
+	{ value: 'draft', label: 'В работе' },
+];
+
+const parseStatus = (value: string | null): StatusFilter => {
+	return value === 'done' || value === 'draft' ? value : 'all';
+};
 
 export const technologyLoader = async ({ params }: LoaderFunctionArgs) => {
 	const technology = params.technology
@@ -26,15 +42,40 @@ export const technologyLoader = async ({ params }: LoaderFunctionArgs) => {
 	};
 };
 
+export const technologyShouldRevalidate = ({
+	currentUrl,
+	nextUrl,
+}: ShouldRevalidateFunctionArgs) => {
+	return currentUrl.pathname !== nextUrl.pathname;
+};
+
 export const TechnologyPage = () => {
 	const data = useLoaderData<typeof technologyLoader>();
-	const [query, setQuery] = useState('');
+	const [searchParams, setSearchParams] = useSearchParams();
 
 	if (!data) {
 		return <NotFoundPage />;
 	}
 
-	const visible = searchLectures(data.lectures, query);
+	const query = searchParams.get('q') ?? '';
+	const status = parseStatus(searchParams.get('status'));
+
+	const updateParam = (name: string, value: string) => {
+		setSearchParams(
+			(previous) => {
+				const next = new URLSearchParams(previous);
+				if (value === '') {
+					next.delete(name);
+				} else {
+					next.set(name, value);
+				}
+				return next;
+			},
+			{ replace: true },
+		);
+	};
+
+	const visible = searchLectures(filterByStatus(data.lectures, status), query);
 	const info = TECHNOLOGY_INFO[data.technology];
 
 	return (
@@ -48,8 +89,26 @@ export const TechnologyPage = () => {
 					type="search"
 					placeholder="🔍 Поиск по лекциям"
 					value={query}
-					onChange={(e) => setQuery(e.target.value)}
+					onChange={(e) => updateParam('q', e.target.value)}
 				/>
+				<div className={styles.filters}>
+					{STATUS_OPTIONS.map((option) => (
+						<button
+							key={option.value}
+							type="button"
+							className={styles.filter}
+							aria-pressed={status === option.value}
+							onClick={() =>
+								updateParam(
+									'status',
+									option.value === 'all' ? '' : option.value,
+								)
+							}
+						>
+							{option.label}
+						</button>
+					))}
+				</div>
 			</div>
 
 			<p className={styles.count}>
