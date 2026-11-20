@@ -1,6 +1,7 @@
 import { useLoaderData } from 'react-router';
 import { fetchLectureSummaries } from '../../api/lectures';
 import { TechnologyCard } from '../../components/TechnologyCard/TechnologyCard';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { getByTechnology, getDrafts, getPublished } from '../../lib/lectures';
 import { TECHNOLOGIES } from '../../types/lecture';
 import styles from './TechnologiesPage.module.css';
@@ -11,6 +12,7 @@ export const technologiesLoader = () => {
 
 export const TechnologiesPage = () => {
 	const lectures = useLoaderData<typeof technologiesLoader>();
+	useDocumentTitle('Технологии');
 
 	const published = getPublished(lectures);
 	const drafts = getDrafts(lectures);
