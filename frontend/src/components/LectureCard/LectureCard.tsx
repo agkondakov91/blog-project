@@ -15,6 +15,9 @@ export const LectureCard = ({ lecture, compact = false }: LectureCardProps) => {
 			<div className={styles.meta}>
 				<TechnologyBadge technology={lecture.technology} />
 				<span>Лекция {lecture.number}</span>
+				{lecture.status === 'draft' && (
+					<span className={styles.draft}>(в работе)</span>
+				)}
 			</div>
 			<h2 className={styles.title}>
 				<Link className={styles.link} to={lecturePath(lecture.slug)}>

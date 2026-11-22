@@ -18,7 +18,7 @@ export const Header = () => {
 			</div>
 			<nav className={styles.nav}>
 				<NavLink className={navLinkClassName} to="/" end>
-					Лекции
+					Технологии
 				</NavLink>
 				<NavLink className={navLinkClassName} to="/about">
 					О блоге
