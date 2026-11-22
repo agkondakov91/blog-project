@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
 	type LoaderFunctionArgs,
 	type ShouldRevalidateFunctionArgs,
@@ -6,6 +7,8 @@ import {
 } from 'react-router';
 import { fetchLectureSummaries } from '../../api/lectures';
 import { LectureList } from '../../components/LectureList/LectureList';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
+import { useSearchShortcut } from '../../hooks/useSearchShortcut';
 import {
 	filterByStatus,
 	getByTechnology,
@@ -52,6 +55,12 @@ export const technologyShouldRevalidate = ({
 export const TechnologyPage = () => {
 	const data = useLoaderData<typeof technologyLoader>();
 	const [searchParams, setSearchParams] = useSearchParams();
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	useDocumentTitle(
+		data ? TECHNOLOGY_INFO[data.technology].label : 'Не найдено',
+	);
+	useSearchShortcut(inputRef);
 
 	if (!data) {
 		return <NotFoundPage />;
@@ -85,9 +94,10 @@ export const TechnologyPage = () => {
 
 			<div className={styles.controls}>
 				<input
+					ref={inputRef}
 					className={styles.search}
 					type="search"
-					placeholder="🔍 Поиск по лекциям"
+					placeholder="🔍 Поиск по лекциям – нажмите /"
 					value={query}
 					onChange={(e) => updateParam('q', e.target.value)}
 				/>
