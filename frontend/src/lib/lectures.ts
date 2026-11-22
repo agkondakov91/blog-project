@@ -1,10 +1,10 @@
-import type { LectureSummary, Technology } from '../types/lecture';
-import { TECHNOLOGIES } from '../types/lecture';
+import type {
+	LectureStatus,
+	LectureSummary,
+	Technology,
+} from '../types/lecture';
 
-export type LectureGroup = {
-	technology: Technology;
-	lectures: LectureSummary[];
-};
+export type StatusFilter = LectureStatus | 'all';
 
 export const getPublished = (lectures: LectureSummary[]): LectureSummary[] => {
 	return lectures.filter((lecture) => lecture.status === 'done');
@@ -25,11 +25,28 @@ export const sortByNumber = (lectures: LectureSummary[]): LectureSummary[] => {
 	return [...lectures].sort((a, b) => a.number - b.number);
 };
 
-export const groupByTechnology = (
+export const filterByStatus = (
 	lectures: LectureSummary[],
-): LectureGroup[] => {
-	return TECHNOLOGIES.map((technology) => ({
-		technology,
-		lectures: getByTechnology(lectures, technology),
-	})).filter((group) => group.lectures.length > 0);
+	status: StatusFilter,
+): LectureSummary[] => {
+	if (status === 'all') {
+		return lectures;
+	}
+	return lectures.filter((lecture) => lecture.status === status);
+};
+
+export const searchLectures = (
+	lectures: LectureSummary[],
+	query: string,
+): LectureSummary[] => {
+	const normalized = query.trim().toLowerCase();
+	if (normalized === '') {
+		return lectures;
+	}
+	return lectures.filter((lecture) => {
+		const text = [lecture.title, lecture.description, ...lecture.tags]
+			.join(' ')
+			.toLowerCase();
+		return text.includes(normalized);
+	});
 };
