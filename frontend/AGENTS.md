@@ -61,7 +61,7 @@ npm run lint:fix   # biome check --write .  (автоисправление)
 Маршруты (`src/router.ts`), все под общим `Layout` с `ErrorBoundary` и фолбэком загрузки:
 
 - `/` — `TechnologiesPage`: обзор направлений со статистикой.
-- `/technologies/:technology` — `TechnologyPage`: список лекций направления, поиск и фильтр по статусу хранятся в search-параметрах (`?q=...&status=...`), `shouldRevalidate` отключает лишние перезагрузки.
+- `/technologies/:technology` — `TechnologyPage`: список лекций направления, поиск и фильтр по статусу хранятся в search-параметрах (`?q=...&status=...`), `shouldRevalidate` отключает лишние перезагрузки. Фокус на поле поиска — по клавише `/` (хук `useSearchShortcut`).
 - `/lectures/:slug` — `LecturePage`, маршрут **ленивый** (`lazy`), чтобы библиотеки Markdown грузились только на странице лекции.
 - `/about`, `*` — `NotFoundPage`.
 
@@ -71,7 +71,7 @@ npm run lint:fix   # biome check --write .  (автоисправление)
 - `lib/` — чистые функции-помощники: фильтрация/сортировка/поиск лекций (`lectures.ts`), справочник направлений `TECHNOLOGY_INFO` (`technologies.ts`), построение путей (`paths.ts`).
 - `types/` — общие типы `Lecture`, `LectureSummary`, `Technology`, `TECHNOLOGIES`.
 - `data/` — реестр изображений контента.
-- `hooks/` — кастомные React-хуки.
+- `hooks/` — кастомные React-хуки: `useDocumentTitle` (заголовок вкладки «<страница> - Обучающий блог» с восстановлением прежнего при размонтировании, подключён на всех трёх страницах: список направлений, направление, лекция) и `useSearchShortcut` (фокус на поле поиска по клавише `/`, только на странице направления).
 - `components/` — один компонент = папка `ComponentName/` с `ComponentName.tsx` и `ComponentName.module.css`, именованный экспорт.
 - `pages/` — страницы по тому же принципу (часть простых страниц — отдельными `.tsx`-файлами: `AboutPage.tsx`, `NotFoundPage.tsx`, `LoadingPage.tsx`).
 - `styles/` — `global.css` (импортируется в `main.tsx`) и `tokens.css` (дизайн-токены: цвета, отступы).
@@ -82,7 +82,7 @@ npm run lint:fix   # biome check --write .  (автоисправление)
 
 - Отступы — **табы**, строки — одинарные кавычки, точки с запятой обязательны; Biome при сохранении также организует импорты (`organizeImports`).
 - Импорты типов — только через `import type` (`verbatimModuleSyntax` в tsconfig): `import type { Lecture } from '../types/lecture'`.
-- В импортах указывается расширение файла: `from './content.ts'`, `from '../types/lecture.ts` (`allowImportingTsExtensions`).
+- В импортах указывается расширение файла: `from './content.ts'`, `from '../types/lecture.ts'` (`allowImportingTsExtensions`).
 - Компоненты и страницы — функции с именованным экспортом, типы пропсов называются `<Имя>Props`.
 - Стили — CSS Modules (`styles.module.css`), классы через `styles.имя`; глобальные правила не добавлять (все стили уже через `global.css`/модули).
 - Запрещено: неиспользуемые переменные/параметры, switch с провалами, non-null assertion без обязательного комментария `// biome-ignore` с пояснением (пример — `src/main.tsx`).
@@ -103,4 +103,3 @@ npm run lint:fix   # biome check --write .  (автоисправление)
 - Меняя формат контента, правьте синхронно `scripts/content.ts` и это описание.
 - Добавляя направление — константу в `src/types/lecture.ts` **и** запись в `TECHNOLOGY_INFO` (`src/lib/technologies.ts`), иначе контент с новой технологией не распарсится.
 - `dist/` и `public/content/` — артефакты сборки, в git не коммитить и не редактировать руками.
-- Пустой `src/hooks/useDocumentTitle.ts` — заготовка, не использовать как образец.
