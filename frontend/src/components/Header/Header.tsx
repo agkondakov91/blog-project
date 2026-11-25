@@ -10,10 +10,10 @@ export const Header = () => {
 		<header className={styles.header}>
 			<div>
 				<Link className={styles.logo} to="/">
-					Обучающий блог
+					Образовательный портал
 				</Link>
 				<p className={styles.tagline}>
-					Фуллстек-разработка: от вёрстки до деплоя
+					Платформа авторских лекций по веб-разработке.
 				</p>
 			</div>
 			<nav className={styles.nav}>
@@ -21,7 +21,7 @@ export const Header = () => {
 					Технологии
 				</NavLink>
 				<NavLink className={navLinkClassName} to="/about">
-					О блоге
+					О проекте
 				</NavLink>
 			</nav>
 		</header>
