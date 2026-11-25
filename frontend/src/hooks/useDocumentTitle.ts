@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const SITE_NAME = 'Обучающий блог';
+const SITE_NAME = 'Образовательный портал';
 
 export const useDocumentTitle = (title: string) => {
 	useEffect(() => {
